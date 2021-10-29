@@ -1,0 +1,12 @@
+.input {
+    text-align: center;
+    outline: none;
+    padding: 3px;
+    border: 3px solid rgb(6, 200, 248);
+    border-radius: 5px;
+}
+
+.inputError {
+    background: rgb(246, 86, 86);
+    border: 3px solid rgb(236, 31, 31);
+}

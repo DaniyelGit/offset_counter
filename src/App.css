@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+    font-family: sans-serif;
+    background: #282c34;
+}
+
+.container {
+    max-width: 1000px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.wrapperFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
 }
