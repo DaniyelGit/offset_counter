@@ -9,7 +9,7 @@ type InputPropsType = {
 }
 
 export const Input: React.FC<InputPropsType> = ({message, errorText, value, callBack}) => {
-
+    console.log('Input')
     let error = message === errorText ? s.inputError : '';
 
     const onChangeHandlerForInput = (e: ChangeEvent<HTMLInputElement>) => {

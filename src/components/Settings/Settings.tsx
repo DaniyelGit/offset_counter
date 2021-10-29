@@ -20,6 +20,7 @@ export const Settings: React.FC<SettingPropsType> = (
         minNum, disabledSettings, message, errorText
     }) => {
 
+
     return (
         <div className={s.settings}>
             <SettingsScoreboard

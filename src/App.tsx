@@ -12,13 +12,14 @@ function App() {
     const [message, setMessage] = useState(''); // State для текста
     const [disabledCounter, setDisabledCounter] = useState(true); // disabled для кнопок счетчика
     const [disabledSettings, setDisabledSettings] = useState(true) // disabled для кнопок настроек
+    const [collapsed, setCollapsed] = useState(true);
 
     const changeNumber = () => setNumber(number + 1); // функция изменения State для счетчика
     const resetNumber = () => setNumber(settingsMin) // функция для сброса счетчика
 
-    let maxNum = settingsMax; // максимальное число
-    let minNum = settingsMin; // минимальное число
-    let errorText = 'Incorrect value'; // текст для ошибка
+    const maxNum = settingsMax; // максимальное число
+    const minNum = settingsMin; // минимальное число
+    const errorText = 'Incorrect value'; // текст для ошибка
     let correctText = "enter value and press 'set'"; // текст для корректного ввода
 
     useEffect(() => {
@@ -88,14 +89,28 @@ function App() {
         setMessage('');
         setDisabledCounter(false);
         setDisabledSettings(true);
+        setCollapsed(true);
     }
 
+    const changeCollapsed = () => setCollapsed(!collapsed);
 
     return (
         <div className="wrapper">
             <div className="container">
                 <div className="wrapperFlex">
-                    <Settings
+                    {collapsed && <Counter
+                        disabledCounter={disabledCounter}
+                        message={message}
+                        number={number}
+                        changeNumber={changeNumber}
+                        resetNumber={resetNumber}
+                        maxNum={maxNum}
+                        minNum={minNum}
+                        errorText={errorText}
+                        collapsed={collapsed}
+                        changeCollapsed={changeCollapsed}
+                    />}
+                    {!collapsed && <Settings
                         changeValueMax={changeValueMax}
                         changeValueMin={changeValueMin}
                         changeStartValue={changeStartValue}
@@ -105,18 +120,7 @@ function App() {
                         message={message}
                         errorText={errorText}
 
-                    />
-
-                    <Counter
-                        disabledCounter={disabledCounter}
-                        message={message}
-                        number={number}
-                        changeNumber={changeNumber}
-                        resetNumber={resetNumber}
-                        maxNum={maxNum}
-                        minNum={minNum}
-                        errorText={errorText}
-                    />
+                    />}
                 </div>
             </div>
         </div>

@@ -25,7 +25,6 @@ export const SettingsScoreboard: React.FC<SettingsScoreboardPropsType> = (
         changeValueMin(value);
     }
 
-
     return (
         <div className={s.settingsScoreboard}>
             <div className={s.settingsValue}>

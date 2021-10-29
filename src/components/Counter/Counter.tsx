@@ -12,15 +12,16 @@ type CounterPropsType = {
     message: string
     disabledCounter: boolean
     errorText: string
+    collapsed: boolean
+    changeCollapsed: () => void
 }
 
 export const Counter: React.FC<CounterPropsType> = (
     {
         number, changeNumber, resetNumber,
         maxNum, minNum, message, disabledCounter,
-        errorText, ...props
+        errorText, collapsed, changeCollapsed
     }) => {
-
 
     return (
         <div className={s.counter}>
@@ -28,6 +29,7 @@ export const Counter: React.FC<CounterPropsType> = (
             <div className={s.buttonsWrapper}>
                 <Button disabled={disabledCounter || maxNum === number} name={'inc'}  callBack={changeNumber}/>
                 <Button disabled={disabledCounter || number === minNum} name={'reset'}  callBack={resetNumber}/>
+                <Button disabled={false} name={'set'} callBack={changeCollapsed}/>
             </div>
         </div>
     );

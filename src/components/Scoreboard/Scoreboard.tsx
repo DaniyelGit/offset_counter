@@ -14,7 +14,7 @@ export const Scoreboard: React.FC<ScoreboardPropsType> = (
     }) => {
 
     let error = message === errorText ? s.textError : s.text
-
+    console.log('Scoreboard')
     return (
         <div className={s.scoreboard}>
           <span className={number === maxNum ? s.max : ''}>
